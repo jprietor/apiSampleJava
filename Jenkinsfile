@@ -1,7 +1,7 @@
 @Library('jenkinsfile-shared-library') _
 
 def config = readYaml text: """
-  APP: 'HelloWorld'
+  APP: 'ApiSampleJava'
 """
 
 config.keySet().each {
