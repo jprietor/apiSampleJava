@@ -5,6 +5,7 @@ def config = readYaml text: """
   VERSION: 'v1'
   DOCKER_IMAGE: 'prietor/api-sample-java'
   DOCKERFILE_LOCATION: '.'
+  SVC_NAME: 'api-sample-java'
 """
 
 config.keySet().each {
