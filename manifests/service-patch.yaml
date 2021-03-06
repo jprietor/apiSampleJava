@@ -6,4 +6,4 @@ spec:
   ports:
     - protocol: TCP
       port: 8080
-      nodePort: 8180
+      nodePort: 30000
