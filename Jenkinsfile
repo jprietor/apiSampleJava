@@ -2,6 +2,9 @@
 
 def config = readYaml text: """
   APP: 'ApiSampleJava'
+  VERSION: 'v1'
+  DOCKER_IMAGE: 'prietor/apiSampleJava'
+  DOCKERFILE_LOCATION: '.'
 """
 
 config.keySet().each {
