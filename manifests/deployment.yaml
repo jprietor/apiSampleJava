@@ -21,4 +21,4 @@ spec:
       - name: api-sample-java
         image: prietor/api-sample-java:v1
         ports:
-        - containerPort: 3000
+        - containerPort: 8080

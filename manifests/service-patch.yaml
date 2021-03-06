@@ -5,5 +5,5 @@ spec:
     version: v1
   ports:
     - protocol: TCP
-      port: 3000
-      nodePort: 30001
+      port: 8080
+      nodePort: 8180
