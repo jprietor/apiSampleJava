@@ -1,0 +1,9 @@
+spec:
+  type: NodePort
+  selector:
+    app: api-sample-java
+    version: v1
+  ports:
+    - protocol: TCP
+      port: 3000
+      nodePort: 30001
