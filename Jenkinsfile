@@ -2,7 +2,7 @@
 
 def config = readYaml text: """
   APP: 'ApiSampleJava'
-  VERSION: 'v2'
+  VERSION: 'v3'
   DOCKER_IMAGE: 'prietor/api-sample-java'
   DOCKERFILE_LOCATION: '.'
   SVC_NAME: 'api-sample-java'
