@@ -1,4 +1,4 @@
-# apiSampleJava
+# SRE for apiSampleJava
 
 ## Description
 
@@ -42,6 +42,10 @@ Master branch pipeline implemented [pipelineForApiSampleJavaMaster](https://gith
 
 When a developer commits/merges to master with a new version -feature/hotfix included and Jenkinsfile VERSION config parameter upgraded-, a GitHub webhook will trigger master pipeline execution (as long as Jenkins is exposed to Internet) and a new Blue/green deployment will be performed on minikube (1 node, 3 Blue pods deployment, 3 Green pods deployment and 1 service api-sample-java patched to blue or green deployment).
 
+New release deployment | Blue/Green switch
+---------------------- | -----------------
+![cicd-blue-green.jpg](https://user-images.githubusercontent.com/79945638/110260487-c8820a00-7fac-11eb-8847-3f4760824ccf.png) | ![cicd-blue-green-2.jpg](https://user-images.githubusercontent.com/79945638/110260599-34647280-7fad-11eb-8fb4-ae93a6401d9f.png)
+
 ## Use and technology requirements
 
 Requirements and tools used to run this sample on 1 Docker host:
@@ -84,4 +88,11 @@ Type of service | Type of SLI | Description | Implementation
 Request-driven | Availability | Number of successful HTTP requests / total HTTP requests (success rate) | sum(rate(http_requests_total{host="api-sample", status!~"5.."}[7d])) / sum(rate(http_requests_total{host="api-sample"}[7d])
 Request-driven | Latency | Number of HTTP requests that completed successfully in < x ms / total HTTP requests requests | http_request_duration_seconds{host="api", le="0.1"} -cumulative histogram...- histogram_quantile(0.9, rate(http_request_duration_seconds_bucket[7d]))
 
-After several weeks the previous metrics (total HTTP requests, successful HTTP requests, latency 90th percentile) should show numbers to propose SLOs and decide next steps and priorities for reliability improvement.
+After several weeks the previous metrics (total HTTP requests, successful HTTP requests, latency 90th percentile) should show numbers to calculate SLOs, error budget and decide next steps and priorities for reliability continuous improvement.
+
+SLOs example:
+
+Type | Objective
+---- | ---------
+Availability | 99%
+Latency | 90% of requests < 250 ms
